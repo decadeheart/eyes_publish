@@ -1,0 +1,152 @@
+@background-color: #f5f7f9;
+@theme-yellow: #f98d0b;
+@theme-yellow-hover: #f59e35;
+@theme-blue: #1d91db;
+@theme-hover: #eee;
+@theme-blue-hover: #349bdc;
+@color-gray: #f3f3f3;
+@inner-width: 1100px;
+@color-placeholder-gray: #777;
+@color-lower: #e2e2e3;
+@color-low: #e1f1fe;
+@color-normal: #b7d9fd;
+@color-high: #4787e2;
+@color-higher: #344095;
+@color-hint: #707a7d;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: microsoft-yahei;
+  font-size: 14px;
+  color: #222;
+}
+body {
+  height: 100%;
+  background-color: @background-color;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/*
+  common class
+*/
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.inline {
+  display: inline;
+}
+.block {
+  display: block;
+}
+.clear-fix {
+  display: block;
+  clear: both;
+}
+.invisible {
+  visibility: hidden
+}
+.hidden {
+  display: none;
+}
+
+/*
+  loading
+*/
+.loading-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 2100;
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @loader-width: 40px;
+    @loader-border-width: 5px;
+    width: @loader-width;
+    height: @loader-width;
+    border: @loader-border-width solid @color-gray;
+    border-top: @loader-border-width solid @theme-blue;
+    border-radius: 50%;
+    margin-left: -@loader-width/2;
+    margin-top: -@loader-width/2;
+    animation: spin 2s ease infinite;
+  }
+}
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+/*
+  element date-picker style hack
+*/
+.el-date-editor.el-input {
+  width: 125px;
+}
+.el-input--small .el-input__inner {
+  border: 0;
+  color: white;
+  background-color: @theme-yellow;
+  &:hover {
+    background-color: @theme-yellow-hover;
+  }
+}
+.el-input__icon {
+  color: #f3f3f3;
+}
+.el-input--small .el-input__inner::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+  }
+  .el-input--small .el-input__inner:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity:  1;
+  }
+  .el-input--small .el-input__inner::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+    opacity:  1;
+  }
+  .el-input--small .el-input__inner:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+.date-picker-wrap.active  {
+  .el-input--small .el-input__inner {
+    background-color: white;
+    color: #222;
+  }
+  .el-input--small .el-input__inner::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: @color-placeholder-gray;
+  }
+  .el-input--small .el-input__inner:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: @color-placeholder-gray;
+    opacity:  1;
+  }
+  .el-input--small .el-input__inner::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: @color-placeholder-gray;
+    opacity:  1;
+  }
+  .el-input--small .el-input__inner:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: @color-placeholder-gray;
+  }
+}
+
+/*
+  element select style hack
+*/
+.el-select {
+  width: 100px;
+  .el-input__inner {
+    border: 0;
+  }
+}
